@@ -1,8 +1,10 @@
-package com.example.bebagua;
+package com.example.bebagua.feature.presentation.modules;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.bebagua.R;
 
 public class MainActivity extends AppCompatActivity {
 
