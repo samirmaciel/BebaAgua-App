@@ -33,7 +33,13 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                goToMainActivity();
+                mDataBinging.constraintLayoutSplashScreen.transitionToEnd(new Runnable() {
+                    @Override
+                    public void run() {
+                        goToMainActivity();
+                    }
+                });
+
             }
 
             @Override
