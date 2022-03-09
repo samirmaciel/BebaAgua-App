@@ -3,8 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/samir/AndroidStudioProjects/Bebagua/app/src/main/res/drawable/background_button.xml" value="0.3635" />
+        <entry key="..\:/Users/samir/AndroidStudioProjects/Bebagua/app/src/main/res/drawable/background_button_strock.xml" value="0.3635" />
         <entry key="..\:/Users/samir/AndroidStudioProjects/Bebagua/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/samir/AndroidStudioProjects/Bebagua/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/samir/AndroidStudioProjects/Bebagua/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/samir/AndroidStudioProjects/Bebagua/app/src/main/res/layout/fragment_splash.xml" value="0.3625" />
+        <entry key="..\:/Users/samir/AndroidStudioProjects/Bebagua/app/src/main/res/layout/layout_compoment_home.xml" value="0.3625" />
+        <entry key="..\:/Users/samir/AndroidStudioProjects/Bebagua/app/src/main/res/xml/fragment_home_xml.xml" value="0.30052083333333335" />
+        <entry key="..\:/Users/samir/AndroidStudioProjects/Bebagua/app/src/main/res/xml/fragment_home_xml_constraintlayout_scene.xml" value="0.30052083333333335" />
       </map>
     </option>
   </component>

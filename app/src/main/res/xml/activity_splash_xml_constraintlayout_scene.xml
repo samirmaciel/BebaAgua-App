@@ -10,7 +10,7 @@
        <KeyFrameSet>
            <KeyAttribute
                motion:motionTarget="@+id/loadLottieAnim"
-               motion:framePosition="40"
+               motion:framePosition="30"
                android:alpha="0" />
            <KeyAttribute
                motion:motionTarget="@+id/loadLottieAnim"
