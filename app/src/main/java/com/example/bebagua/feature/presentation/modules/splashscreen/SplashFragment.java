@@ -1,20 +1,17 @@
 package com.example.bebagua.feature.presentation.modules.splashscreen;
 
 import android.animation.Animator;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentSplashBinding;
-import com.example.bebagua.feature.presentation.modules.MainActivity;
+
 
 public class SplashFragment extends Fragment {
 
@@ -27,18 +24,16 @@ public class SplashFragment extends Fragment {
         return mBinding.getRoot();
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
 
         mBinding.loadLottieAnim.playAnimation();
 
-
-
         mBinding.loadLottieAnim.addAnimatorListener(new Animator.AnimatorListener() {
             @Override
-            public void onAnimationStart(Animator animator) { }
+            public void onAnimationStart(Animator animator) {
+            }
 
             @Override
             public void onAnimationEnd(Animator animator) {
@@ -48,14 +43,15 @@ public class SplashFragment extends Fragment {
                         goToMainActivity();
                     }
                 });
-
             }
 
             @Override
-            public void onAnimationCancel(Animator animator) { }
+            public void onAnimationCancel(Animator animator) {
+            }
 
             @Override
-            public void onAnimationRepeat(Animator animator) { }
+            public void onAnimationRepeat(Animator animator) {
+            }
         });
     }
 

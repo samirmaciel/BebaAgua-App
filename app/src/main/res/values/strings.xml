@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Beba água!</string>
+    <string name="title_btn_back">Voltar</string>
+    <string name="title_btn_register">Registrar</string>
 </resources>

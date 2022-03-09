@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutDescription="@xml/layout_compoment_home_scene"
-        tools:context=".feature.presentation.modules.SplashActivity">
+        tools:context=".feature.presentation.modules.homescreen.HomeFragment">
 
         <ImageView
             android:id="@+id/firstTopGeometry"

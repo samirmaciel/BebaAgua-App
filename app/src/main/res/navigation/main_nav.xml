@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.bebagua.feature.presentation.modules.homescreen.HomeFragment"
         tools:layout="@layout/fragment_home"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_registerWaterFragment"
+            app:destination="@id/registerWaterFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.bebagua.feature.presentation.modules.splashscreen.SplashFragment"
@@ -19,4 +23,9 @@
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/registerWaterFragment"
+        android:name="com.example.bebagua.feature.presentation.modules.registerwaterscreen.RegisterWaterFragment"
+        android:label="fragment_registerwater"
+        tools:layout="@layout/fragment_registerwater" />
 </navigation>
