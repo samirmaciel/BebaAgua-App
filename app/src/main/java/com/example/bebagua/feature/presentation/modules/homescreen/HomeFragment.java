@@ -44,7 +44,6 @@ public class HomeFragment extends Fragment {
 
     }
 
-
     private void startDelayedMotionAnim() {
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {

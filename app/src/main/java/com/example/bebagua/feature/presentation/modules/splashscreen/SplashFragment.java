@@ -40,7 +40,7 @@ public class SplashFragment extends Fragment {
                 mBinding.constraintLayoutSplashScreen.transitionToEnd(new Runnable() {
                     @Override
                     public void run() {
-                        goToMainActivity();
+                        goToHomeFragment();
                     }
                 });
             }
@@ -55,7 +55,7 @@ public class SplashFragment extends Fragment {
         });
     }
 
-    private void goToMainActivity() {
+    private void goToHomeFragment() {
         Navigation.findNavController(getView()).navigate(R.id.action_splashFragment_to_homeFragment);
     }
 }

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.motion.widget.MotionLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayoutHomeScreen"
+    android:id="@+id/constraintLayoutRegisterWaterScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/fragment_home_scene"
-    tools:context=".feature.presentation.modules.homescreen.HomeFragment">
+    tools:context=".feature.presentation.modules.goalsscreen.GoalsFragment">
 
     <ImageView
         android:id="@+id/firstTopGeometry"
@@ -21,15 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/secondTopGeometry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-120dp"
-        android:src="@drawable/ic_svgtop2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivUserImageProfile"
@@ -51,27 +40,24 @@
         app:layout_constraintStart_toEndOf="@id/ivUserImageProfile"
         app:layout_constraintTop_toTopOf="@id/ivUserImageProfile" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnDrinkWater"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunitobold"
-        android:text="@string/title_btn_drinkwater"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGoals"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomGeometry"
+        app:layout_constraintTop_toBottomOf="@id/firstTopGeometry"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnGoToGoal"
+        android:id="@+id/btnGoBack"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/background_button_stroke"
         android:fontFamily="@font/nunitobold"
-        android:text="Ver Metas"
+        android:text="@string/title_btn_back"
         android:textColor="@color/white"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,4 +74,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

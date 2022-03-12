@@ -12,6 +12,18 @@
                 motion:motionTarget="@+id/btnDrinkWater"
                 motion:framePosition="0"
                 android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/ivUserImageProfile"
+                motion:framePosition="0"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/ivUserImageProfile"
+                motion:framePosition="48"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/btnSettings"
+                motion:framePosition="48"
+                android:alpha="0" />
         </KeyFrameSet>
     </Transition>
 
