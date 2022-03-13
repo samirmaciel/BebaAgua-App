@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerWaterFragment"
@@ -36,4 +39,13 @@
         android:name="com.example.bebagua.feature.presentation.modules.goalsscreen.GoalsFragment"
         android:label="fragment_goals"
         tools:layout="@layout/fragment_goals" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.bebagua.feature.presentation.modules.auth.loginscreen.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

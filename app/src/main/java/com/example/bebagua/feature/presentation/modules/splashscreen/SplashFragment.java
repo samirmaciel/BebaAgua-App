@@ -56,6 +56,6 @@ public class SplashFragment extends Fragment {
     }
 
     private void goToHomeFragment() {
-        Navigation.findNavController(getView()).navigate(R.id.action_splashFragment_to_homeFragment);
+        Navigation.findNavController(getView()).navigate(R.id.action_splashFragment_to_loginFragment);
     }
 }

@@ -2,5 +2,12 @@
     <string name="app_name">Beba água!</string>
     <string name="title_btn_back">Voltar</string>
     <string name="title_btn_register">Registrar</string>
-    <string name="title_btn_drinkwater">Beber água!</string>
+    <string name="title_btn_drinkwater">Beber água</string>
+    <string name="title_login">Login</string>
+    <string name="title_input_email">Email</string>
+    <string name="hint_input_email">email@email.com</string>
+    <string name="hint_input_password">*******</string>
+    <string name="title_btn_dontrememberpasswaord">Esqueceu a senha?</string>
+    <string name="title_btn_signup">Novo por aqui? Cadastre-se!</string>
+    <string name="title_button_enter">Entrar</string>
 </resources>
