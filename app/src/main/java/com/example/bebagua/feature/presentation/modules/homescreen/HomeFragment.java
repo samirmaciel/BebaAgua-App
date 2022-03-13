@@ -15,17 +15,15 @@ import androidx.navigation.Navigation;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentHomeBinding;
 
-import java.util.Timer;
-
 public class HomeFragment extends Fragment {
 
-    FragmentHomeBinding mDataBinding;
+    FragmentHomeBinding mBinding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mDataBinding = FragmentHomeBinding.inflate(getLayoutInflater());
-        return mDataBinding.getRoot();
+        mBinding = FragmentHomeBinding.inflate(getLayoutInflater());
+        return mBinding.getRoot();
     }
 
     @Override
@@ -38,10 +36,13 @@ public class HomeFragment extends Fragment {
         super.onResume();
         startDelayedMotionAnim();
 
-        mDataBinding.btnDrinkWater.setOnClickListener((View v) -> {
-            goToRegisterWaterScreen();
+        mBinding.btnDrinkWater.setOnClickListener((View v) -> {
+            goToScreen("RegisterWater");
         });
 
+        mBinding.btnGoToGoal.setOnClickListener((View v) -> {
+            goToScreen("Goals");
+        });
     }
 
     private void startDelayedMotionAnim() {
@@ -49,34 +50,39 @@ public class HomeFragment extends Fragment {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                mDataBinding.constraintLayoutHomeScreen.transitionToEnd();
+                mBinding.constraintLayoutHomeScreen.transitionToEnd();
             }
         };
         handler.postDelayed(runnable, 50);
     }
 
-    private void goToRegisterWaterScreen(){
-        mDataBinding.constraintLayoutHomeScreen.transitionToStart();
+    private void goToScreen(String screenName) {
+        mBinding.constraintLayoutHomeScreen.transitionToStart();
 
-        mDataBinding.constraintLayoutHomeScreen.addTransitionListener(new MotionLayout.TransitionListener() {
+        mBinding.constraintLayoutHomeScreen.addTransitionListener(new MotionLayout.TransitionListener() {
             @Override
             public void onTransitionStarted(MotionLayout motionLayout, int startId, int endId) {
-
             }
 
             @Override
             public void onTransitionChange(MotionLayout motionLayout, int startId, int endId, float progress) {
-
             }
 
             @Override
             public void onTransitionCompleted(MotionLayout motionLayout, int currentId) {
-                Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_registerWaterFragment);
+
+                if (screenName.equals("Goals")) {
+                    Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_goalsFragment);
+                } else if (screenName.equals("RegisterWater")) {
+                    Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_registerWaterFragment);
+                }else{
+
+                }
+
             }
 
             @Override
             public void onTransitionTrigger(MotionLayout motionLayout, int triggerId, boolean positive, float progress) {
-
             }
         });
     }

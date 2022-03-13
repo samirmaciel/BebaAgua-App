@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayoutRegisterWaterScreen"
+    android:id="@+id/constraintLayoutGoalsScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_goals_scene"
     tools:context=".feature.presentation.modules.goalsscreen.GoalsFragment">
 
     <ImageView
@@ -45,9 +46,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottomGeometry"
-        app:layout_constraintTop_toBottomOf="@id/firstTopGeometry"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/firstTopGeometry"
+        tools:listitem="@layout/item_rv_usergoal" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnGoBack"
@@ -74,4 +76,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
