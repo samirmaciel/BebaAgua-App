@@ -10,4 +10,16 @@
     <string name="title_btn_dontrememberpasswaord">Esqueceu a senha?</string>
     <string name="title_btn_signup">Novo por aqui? Cadastre-se!</string>
     <string name="title_button_enter">Entrar</string>
+    <string name="title_button_sendemail">Enviar email</string>
+    <string name="description_forgetpassword">Digite seu email de cadastro, para que possamos enviar um email de recuperacação de senha.</string>
+
+    <array name="water_quantity">
+        <item>200ml</item>
+        <item>300ml</item>
+        <item>400ml</item>
+        <item>500ml</item>
+        <item>600ml</item>
+        <item>700ml</item>
+        <item>800ml</item>
+    </array>
 </resources>

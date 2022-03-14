@@ -13,21 +13,9 @@
                motion:framePosition="0"
                android:alpha="0" />
            <KeyAttribute
-               motion:motionTarget="@+id/edtWaterValue"
-               motion:framePosition="0"
-               android:alpha="0" />
-           <KeyAttribute
                motion:motionTarget="@+id/btnRegisterWater"
                motion:framePosition="0"
                android:alpha="0.5" />
-           <KeyAttribute
-               motion:motionTarget="@+id/btnRegisterWater"
-               motion:framePosition="60"
-               android:alpha="0" />
-           <KeyAttribute
-               motion:motionTarget="@+id/edtWaterValue"
-               motion:framePosition="60"
-               android:alpha="0" />
            <KeyAttribute
                motion:motionTarget="@+id/ivUserImageProfile"
                motion:framePosition="0"
@@ -47,6 +35,25 @@
            <KeyAttribute
                motion:motionTarget="@+id/btnSettings"
                motion:framePosition="52"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/spnWaterQuantity"
+               motion:framePosition="0"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/btnRegisterWater"
+               motion:framePosition="52" />
+           <KeyAttribute
+               motion:motionTarget="@+id/btnRegisterWater"
+               motion:framePosition="0"
+               android:alpha="0.5" />
+           <KeyAttribute
+               motion:motionTarget="@+id/btnRegisterWater"
+               motion:framePosition="52"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/spnWaterQuantity"
+               motion:framePosition="50"
                android:alpha="0" />
        </KeyFrameSet>
     </Transition>

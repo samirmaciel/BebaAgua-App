@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,11 +33,15 @@ public class LoginFragment extends Fragment {
         startDelayedMotionAnim();
 
         mBinding.btnSignin.setOnClickListener((View v) -> {
-            goToHomeScreen();
+            goToScreen("SignIn");
+        });
+
+        mBinding.btnForgotPassword.setOnClickListener((View v) -> {
+            goToScreen("ForgotPassword");
         });
     }
 
-    private void goToHomeScreen() {
+    private void goToScreen(String screenName) {
         mBinding.constraintLayoutLoginScreen.transitionToStart();
 
         mBinding.constraintLayoutLoginScreen.addTransitionListener(new MotionLayout.TransitionListener() {
@@ -52,7 +57,14 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void onTransitionCompleted(MotionLayout motionLayout, int currentId) {
-                Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_homeFragment);
+                if(screenName.equals("SignIn")){
+                    Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_homeFragment);
+                }else if(screenName.equals("ForgotPassword")){
+                    Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_forgotPasswordFragment);
+                }else {
+                    Toast.makeText(getContext(), "Screen not found", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override

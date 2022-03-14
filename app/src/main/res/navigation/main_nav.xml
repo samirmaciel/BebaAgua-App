@@ -47,5 +47,13 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.bebagua.feature.presentation.modules.auth.forgotpasswordscreen.ForgotPasswordFragment"
+        android:label="fragment_fotgotpassword"
+        tools:layout="@layout/fragment_fotgotpassword" />
 </navigation>
