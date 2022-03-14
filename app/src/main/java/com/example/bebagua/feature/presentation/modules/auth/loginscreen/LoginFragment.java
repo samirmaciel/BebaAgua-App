@@ -34,10 +34,17 @@ public class LoginFragment extends Fragment {
 
         mBinding.btnSignin.setOnClickListener((View v) -> {
             goToScreen("SignIn");
+            mBinding.btnSignin.setEnabled(false);
+        });
+
+        mBinding.btnSignUp.setOnClickListener((View v) -> {
+            goToScreen("SignUp");
+            mBinding.btnSignUp.setEnabled(false);
         });
 
         mBinding.btnForgotPassword.setOnClickListener((View v) -> {
             goToScreen("ForgotPassword");
+            mBinding.btnForgotPassword.setEnabled(false);
         });
     }
 
@@ -61,6 +68,8 @@ public class LoginFragment extends Fragment {
                     Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_homeFragment);
                 }else if(screenName.equals("ForgotPassword")){
                     Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_forgotPasswordFragment);
+                }else if(screenName.equals("SignUp")){
+                    Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_signUpFragment);
                 }else {
                     Toast.makeText(getContext(), "Screen not found", Toast.LENGTH_SHORT).show();
                 }

@@ -50,10 +50,18 @@
         <action
             android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
         android:name="com.example.bebagua.feature.presentation.modules.auth.forgotpasswordscreen.ForgotPasswordFragment"
         android:label="fragment_fotgotpassword"
         tools:layout="@layout/fragment_fotgotpassword" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.bebagua.feature.presentation.modules.auth.signupscreen.SignUpFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" />
 </navigation>
