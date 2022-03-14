@@ -8,10 +8,15 @@
     <string name="hint_input_email">email@email.com</string>
     <string name="hint_input_password">*******</string>
     <string name="title_btn_dontrememberpasswaord">Esqueceu a senha?</string>
-    <string name="title_btn_signup">Novo por aqui? Cadastre-se!</string>
+    <string name="title_btn_signup">Cadastrar</string>
+    <string name="title_btn_newuser">Novo por aqui? Cadastre-se!</string>
     <string name="title_button_enter">Entrar</string>
     <string name="title_button_sendemail">Enviar email</string>
     <string name="description_forgetpassword">Digite seu email de cadastro, para que possamos enviar um email de recuperacação de senha.</string>
+    <string name="title_signup">Cadastro</string>
+    <string name="subtitle_password">Senha</string>
+    <string name="subtitle_nickname">Apelido</string>
+    <string name="hint_edt_nickname">Apelido</string>
 
     <array name="water_quantity">
         <item>200ml</item>
