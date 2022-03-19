@@ -15,16 +15,24 @@ import androidx.navigation.Navigation;
 
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentLoginBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding mBinding;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = FragmentLoginBinding.inflate(inflater);
         return mBinding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 
     @Override
