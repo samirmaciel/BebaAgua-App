@@ -27,4 +27,11 @@
         <item>700ml</item>
         <item>800ml</item>
     </array>
+
+    <array name="water_goal">
+        <item>3lt</item>
+        <item>4lt</item>
+        <item>5lt</item>
+        <item>6lt</item>
+    </array>
 </resources>

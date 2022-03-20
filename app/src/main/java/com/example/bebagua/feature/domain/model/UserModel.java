@@ -2,21 +2,24 @@ package com.example.bebagua.feature.domain.model;
 
 public class UserModel {
 
-    private final String userUID;
+    private String userUID;
     private String userNickName;
-    private String userImageURL;
+    private String userImageURL = null;
     private String userGoal = "0";
     private String userProgress = "0";
 
-    public UserModel(String userUID, String userImageURL, String userNickName){
+    public UserModel(String userUID, String userNickName){
         this.userUID = userUID;
         this.userNickName = userNickName;
-        this.userImageURL = userImageURL;
     }
+
+    public UserModel(){}
 
     public String getUserUID() {
         return userUID;
     }
+
+    public void setUserUID(String userUID) {this.userUID = userUID;}
 
     public String getUserNickName() {
         return userNickName;

@@ -17,8 +17,10 @@ import androidx.navigation.Navigation;
 import com.example.bebagua.databinding.FragmentSignupBinding;
 import com.example.bebagua.feature.domain.model.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -88,39 +90,36 @@ public class SignUpFragment extends Fragment {
     }
 
     private void signUp() {
-        if(allfieldsValidation()){
+        if (allfieldsValidation()) {
             String email = mBinding.edtEmail.getText().toString();
             String password = mBinding.edtPassword.getText().toString();
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d("SignUpStatus", "createUserWithEmail:success");
-                                task.addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(getContext(), "createUserWithEmail:success", Toast.LENGTH_SHORT).show();
-                                        FirebaseUser user = authResult.getUser();
-                                        createUserDate(user.getUid(), "url_not_found", mBinding.edtNickname.getText().toString());
-                                    }
-                                });
+                            task.addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                @Override
+                                public void onSuccess(AuthResult authResult) {
+                                    Toast.makeText(getContext(), "createUserWithEmail:success", Toast.LENGTH_SHORT).show();
+                                    FirebaseUser user = authResult.getUser();
+                                    createUserDate(user.getUid(), mBinding.edtNickname.getText().toString());
+                                    showSnackbar("Cadastro efetuado com sucesso.");
+                                }
+                            });
 
-
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.d("SignUpStatus", "createUserWithEmail:failure", task.getException());
-
-                            }
+                            task.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    showSnackbar("Não foi possivel concluir seu cadastro. " + e);
+                                }
+                            });
                         }
                     });
         }
-
     }
 
-    private void createUserDate(String userUID, String userImageURL, String nickName){
-        UserModel user = new UserModel(userUID, userImageURL, nickName);
+    private void createUserDate(String userUID, String nickName) {
+        UserModel user = new UserModel(userUID, nickName);
         mDatabase.child("users").child(userUID).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -134,7 +133,11 @@ public class SignUpFragment extends Fragment {
         });
     }
 
-    private Boolean allfieldsValidation(){
+    private void showSnackbar(String message) {
+        Snackbar.make(getView(), message, Snackbar.LENGTH_SHORT).show();
+    }
+
+    private Boolean allfieldsValidation() {
         String nickname = mBinding.edtNickname.getText().toString();
         String email = mBinding.edtEmail.getText().toString();
         String password = mBinding.edtPassword.getText().toString();

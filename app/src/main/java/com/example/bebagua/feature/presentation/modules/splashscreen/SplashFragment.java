@@ -11,11 +11,14 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentSplashBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class SplashFragment extends Fragment {
 
     private FragmentSplashBinding mBinding;
+    private FirebaseAuth mAuth;
 
     @Nullable
     @Override
@@ -25,37 +28,43 @@ public class SplashFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
+        checkCurrentUser();
+    }
 
-        mBinding.loadLottieAnim.playAnimation();
+    private void checkCurrentUser(){
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user != null){
+            mBinding.constraintLayoutSplashScreen.transitionToEnd(new Runnable() {
+                @Override
+                public void run() {
+                    goToHomeFragment();
+                }
+            });
 
-        mBinding.loadLottieAnim.addAnimatorListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-            }
+        }else{
+            mBinding.constraintLayoutSplashScreen.transitionToEnd(new Runnable() {
+                @Override
+                public void run() {
+                    goToLoginFragment();
+                }
+            });
+        }
 
-            @Override
-            public void onAnimationEnd(Animator animator) {
-                mBinding.constraintLayoutSplashScreen.transitionToEnd(new Runnable() {
-                    @Override
-                    public void run() {
-                        goToHomeFragment();
-                    }
-                });
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
     }
 
     private void goToHomeFragment() {
+        Navigation.findNavController(getView()).navigate(R.id.action_splashFragment_to_loginFragment);
+    }
+
+    private void goToLoginFragment(){
         Navigation.findNavController(getView()).navigate(R.id.action_splashFragment_to_loginFragment);
     }
 }

@@ -33,19 +33,23 @@
 
     <ImageView
         android:id="@+id/ivUserImageProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/user_googleprofile"
+        android:src="@drawable/defaultperson"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/btnSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/ic_baseline_settings_24"
         app:layout_constraintBottom_toBottomOf="@id/ivUserImageProfile"
         app:layout_constraintStart_toEndOf="@id/ivUserImageProfile"

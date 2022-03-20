@@ -14,10 +14,15 @@ import androidx.navigation.Navigation;
 
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentHomeBinding;
+import com.example.bebagua.feature.presentation.modules.settingsscreen.SettingsBottomSheet;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomeFragment extends Fragment {
 
     FragmentHomeBinding mBinding;
+    private FirebaseAuth mAuth;
 
     @Nullable
     @Override
@@ -29,12 +34,15 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     public void onResume() {
         super.onResume();
         startDelayedMotionAnim();
+        getCurrentUser();
 
         mBinding.btnDrinkWater.setOnClickListener((View v) -> {
             goToScreen("RegisterWater");
@@ -42,6 +50,11 @@ public class HomeFragment extends Fragment {
 
         mBinding.btnGoToGoal.setOnClickListener((View v) -> {
             goToScreen("Goals");
+        });
+
+        mBinding.btnSettings.setOnClickListener((View v) -> {
+            SettingsBottomSheet setttingsBottomSheet = new SettingsBottomSheet();
+            setttingsBottomSheet.show(getChildFragmentManager(), "SettingsBottomSheet");
         });
     }
 
@@ -85,6 +98,13 @@ public class HomeFragment extends Fragment {
             public void onTransitionTrigger(MotionLayout motionLayout, int triggerId, boolean positive, float progress) {
             }
         });
+    }
+
+    private void getCurrentUser(){
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Snackbar.make(getView(), "User: " + currentUser.getEmail().toString(), Snackbar.LENGTH_SHORT).show();
+        }
     }
 }
 

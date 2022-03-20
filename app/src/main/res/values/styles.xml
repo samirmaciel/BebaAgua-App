@@ -26,4 +26,12 @@
         <item name="android:fontFamily">@font/nunitoregular</item>
         <item name="android:background">@drawable/background_edt</item>
     </style>
+
+    <style name="MyBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/MYBottomSheetStyle</item>
+    </style>
+
+    <style name="MYBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>
