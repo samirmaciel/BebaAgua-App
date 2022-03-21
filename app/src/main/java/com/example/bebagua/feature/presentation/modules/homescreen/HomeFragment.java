@@ -2,6 +2,7 @@ package com.example.bebagua.feature.presentation.modules.homescreen;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +13,28 @@ import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.bumptech.glide.Glide;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentHomeBinding;
+import com.example.bebagua.feature.domain.model.UserModel;
 import com.example.bebagua.feature.presentation.modules.settingsscreen.SettingsBottomSheet;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HomeFragment extends Fragment {
 
     FragmentHomeBinding mBinding;
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
     @Nullable
     @Override
@@ -36,13 +48,14 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     @Override
     public void onResume() {
         super.onResume();
         startDelayedMotionAnim();
-        getCurrentUser();
+        listenerCurrentUserData();
 
         mBinding.btnDrinkWater.setOnClickListener((View v) -> {
             goToScreen("RegisterWater");
@@ -100,10 +113,35 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void getCurrentUser(){
+    private void updateUserAtUI(String currentUserUID){
+        ValueEventListener userDataListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String imageURL = dataSnapshot.getValue(String.class);
+
+                View view = getView();
+                if(imageURL != null){
+                    if(view != null){
+                        Glide.with(getView()).load(imageURL).placeholder(R.drawable.defaultperson)
+                                .into(mBinding.ivUserImageProfile);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+            }
+        };
+        mDatabase.child("users").child(currentUserUID).child("userImageURL").addValueEventListener(userDataListener);
+
+    }
+
+    private void listenerCurrentUserData(){
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Snackbar.make(getView(), "User: " + currentUser.getEmail().toString(), Snackbar.LENGTH_SHORT).show();
+            updateUserAtUI(currentUser.getUid());
         }
     }
 }

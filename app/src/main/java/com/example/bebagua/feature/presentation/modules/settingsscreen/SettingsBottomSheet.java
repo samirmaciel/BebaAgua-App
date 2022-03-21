@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import com.bumptech.glide.Glide;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.BottomsheetSettingsBinding;
 import com.example.bebagua.feature.domain.model.UserModel;
@@ -31,8 +32,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -61,6 +64,7 @@ public class SettingsBottomSheet extends BottomSheetDialogFragment implements Ad
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         storageRef = FirebaseStorage.getInstance().getReference();
+        updateUserAtUI(mAuth.getCurrentUser().getUid());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -136,8 +140,8 @@ public class SettingsBottomSheet extends BottomSheetDialogFragment implements Ad
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
         String waterGoalString = adapterView.getItemAtPosition(position).toString();
-        Integer waterGoalInteger = Integer.parseInt(waterGoalString.replace("lt", ""));
-        updateUserGoal(mAuth.getCurrentUser().getUid().toString(), waterGoalInteger.toString());
+        Integer waterGoalInteger = Integer.parseInt(waterGoalString.replace("lt", "")) * 1000;
+        updateUserGoal(mAuth.getCurrentUser().getUid(), waterGoalInteger.toString());
     }
 
     @Override
@@ -239,5 +243,33 @@ public class SettingsBottomSheet extends BottomSheetDialogFragment implements Ad
                 });
             }
         });
+    }
+
+    private void updateUserAtUI(String currentUserUID){
+        ValueEventListener userDataListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                UserModel user = dataSnapshot.getValue(UserModel.class);
+
+                View view = getView();
+                if(user != null){
+                    if(view != null){
+                        Glide.with(getView()).load(user.getUserImageURL()).placeholder(R.drawable.defaultperson)
+                                .into(mBinding.ivUserImageProfile);
+                    }
+
+                    mBinding.tvUserNickName.setText(user.getUserNickName());
+                    mBinding.edtUserNickName.setText(user.getUserNickName());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+            }
+        };
+        mDatabase.child("users").child(currentUserUID).addValueEventListener(userDataListener);
+
     }
 }
