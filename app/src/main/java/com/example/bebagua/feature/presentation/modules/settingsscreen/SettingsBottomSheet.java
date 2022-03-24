@@ -1,6 +1,9 @@
 package com.example.bebagua.feature.presentation.modules.settingsscreen;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -30,6 +33,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,6 +53,8 @@ public class SettingsBottomSheet extends BottomSheetDialogFragment implements Ad
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private StorageReference storageRef;
+    private String selectedGoal =  "4000";
+    private ArrayAdapter mSpinnerAdapter;
 
     @Nullable
     @Override
@@ -76,9 +82,24 @@ public class SettingsBottomSheet extends BottomSheetDialogFragment implements Ad
             imageCapture();
         });
 
+        mBinding.btnSaveGoal.setOnClickListener((View v) -> {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+            alertDialog.setTitle("Com a troca de meta, seu progresso será zerado!");
+            alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    updateUserGoal(mAuth.getCurrentUser().getUid(), selectedGoal.replace("lt", ""));
+                }
+            });
+            alertDialog.setNegativeButton("Sair", null);
+            alertDialog.create().show();
+        });
+
         mBinding.btnEditUserNickName.setOnClickListener((View v) -> {
             changeEditNickNameStatus();
         });
+
+
     }
 
     public void imageCapture() {
@@ -104,9 +125,9 @@ public class SettingsBottomSheet extends BottomSheetDialogFragment implements Ad
     }
 
     private void initSpinner() {
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getContext(), R.array.water_goal, R.layout.item_text_spinner_default);
-        adapter.setDropDownViewResource(R.layout.item_text_spinner_default);
-        mBinding.spnWaterGoal.setAdapter(adapter);
+        mSpinnerAdapter = ArrayAdapter.createFromResource(getContext(), R.array.water_goal, R.layout.item_text_spinner_default);
+        mSpinnerAdapter.setDropDownViewResource(R.layout.item_text_spinner_default);
+        mBinding.spnWaterGoal.setAdapter(mSpinnerAdapter);
         mBinding.spnWaterGoal.setOnItemSelectedListener(this);
     }
 
@@ -141,7 +162,8 @@ public class SettingsBottomSheet extends BottomSheetDialogFragment implements Ad
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
         String waterGoalString = adapterView.getItemAtPosition(position).toString();
         Integer waterGoalInteger = Integer.parseInt(waterGoalString.replace("lt", "")) * 1000;
-        updateUserGoal(mAuth.getCurrentUser().getUid(), waterGoalInteger.toString());
+        this.selectedGoal = waterGoalString.toString();
+
     }
 
     @Override
@@ -180,12 +202,17 @@ public class SettingsBottomSheet extends BottomSheetDialogFragment implements Ad
                         UserModel userModel = dataSnapshot.getValue(UserModel.class);
                         if (userModel != null) {
                             userModel.setUserGoal(goal);
+                            userModel.setUserProgress("0");
                             mDatabase.child("users").child(currentUserUID).setValue(userModel);
+                            dismiss();
+                            Snackbar.make(getParentFragment().getView(), "Meta atualizada com sucesso!", Snackbar.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
         });
+
+
     }
 
     private void uploadImageProfile(String currentUserUID, Bitmap userImage) {
@@ -256,6 +283,7 @@ public class SettingsBottomSheet extends BottomSheetDialogFragment implements Ad
                     if(view != null){
                         Glide.with(getView()).load(user.getUserImageURL()).placeholder(R.drawable.defaultperson)
                                 .into(mBinding.ivUserImageProfile);
+                        mBinding.spnWaterGoal.setSelection(mSpinnerAdapter.getPosition(user.getUserGoal() + "lt"), true);
                     }
 
                     mBinding.tvUserNickName.setText(user.getUserNickName());

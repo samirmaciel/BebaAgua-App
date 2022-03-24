@@ -61,6 +61,10 @@ public class HomeFragment extends Fragment {
             goToScreen("RegisterWater");
         });
 
+        mBinding.btnLogout.setOnClickListener((View v) -> {
+            logout();
+        });
+
         mBinding.btnGoToGoal.setOnClickListener((View v) -> {
             goToScreen("Goals");
         });
@@ -69,6 +73,11 @@ public class HomeFragment extends Fragment {
             SettingsBottomSheet setttingsBottomSheet = new SettingsBottomSheet();
             setttingsBottomSheet.show(getChildFragmentManager(), "SettingsBottomSheet");
         });
+    }
+
+    private void logout() {
+        mAuth.signOut();
+        goToScreen("LoginScreen");
     }
 
     private void startDelayedMotionAnim() {
@@ -101,6 +110,8 @@ public class HomeFragment extends Fragment {
                     Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_goalsFragment);
                 } else if (screenName.equals("RegisterWater")) {
                     Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_registerWaterFragment);
+                } else if (screenName.equals("LoginScreen")) {
+                    Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_loginFragment);
                 }else{
 
                 }

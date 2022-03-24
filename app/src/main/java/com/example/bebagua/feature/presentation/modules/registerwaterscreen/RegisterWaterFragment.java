@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentRegisterwaterBinding;
 import com.example.bebagua.feature.domain.model.UserModel;
+import com.example.bebagua.feature.presentation.modules.settingsscreen.SettingsBottomSheet;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -61,6 +62,11 @@ public class RegisterWaterFragment extends Fragment implements AdapterView.OnIte
             updateUserData(mAuth.getCurrentUser().getUid());
             v.setEnabled(false);
         });
+
+        mBinding.btnSettings.setOnClickListener((View v) -> {
+            SettingsBottomSheet settingsBottomSheet = new SettingsBottomSheet();
+            settingsBottomSheet.show(getChildFragmentManager(), "SettingsBottomSheet");
+        } );
 
         mBinding.btnGoBack.setOnClickListener((View v) -> {
             goToBack();

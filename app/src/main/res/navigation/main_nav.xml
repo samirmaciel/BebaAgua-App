@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_goalsFragment"
             app:destination="@id/goalsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"

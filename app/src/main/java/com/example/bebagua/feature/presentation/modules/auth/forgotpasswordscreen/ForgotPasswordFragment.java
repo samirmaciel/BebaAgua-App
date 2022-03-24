@@ -13,10 +13,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.bebagua.databinding.FragmentFotgotpasswordBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPasswordFragment extends Fragment {
 
     private FragmentFotgotpasswordBinding mBinding;
+    private FirebaseAuth mAuth;
 
     @Nullable
     @Override
@@ -26,13 +33,54 @@ public class ForgotPasswordFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         startDelayedMotionAnim();
 
+        mBinding.btnSendEmail.setOnClickListener((View v) ->{
+            if(validateFields()){
+                sendEmailForResetPassword(mBinding.edtEmail.getText().toString());
+            }else{
+                Snackbar.make(getView(), "É preciso inserir um email válido!", Snackbar.LENGTH_SHORT).show();
+            }
+        });
+
         mBinding.btnGoBack.setOnClickListener((View v) -> {
             goToBack();
         });
+    }
+
+    private boolean validateFields(){
+        return !mBinding.edtEmail.getText().toString().isEmpty();
+    }
+
+    private void sendEmailForResetPassword(String email){
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        task.addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                goToBack();
+                            }
+                        });
+
+                        task.addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Snackbar.make(getView(), e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
     }
 
     private void startDelayedMotionAnim(){

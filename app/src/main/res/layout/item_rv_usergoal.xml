@@ -29,6 +29,18 @@
         style="?android:attr/progressBarStyleHorizontal"/>
 
     <TextView
+        android:id="@+id/tvUserNickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/pbUserCurrentProgress"
+        app:layout_constraintStart_toStartOf="@id/pbUserCurrentProgress"
+        app:layout_constraintEnd_toEndOf="@id/pbUserCurrentProgress"
+        android:textColor="@color/bluebold"
+        style="@style/subtitle"/>
+
+    <TextView
         android:id="@+id/tvTotalGoalValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

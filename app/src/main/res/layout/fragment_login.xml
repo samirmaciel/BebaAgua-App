@@ -55,7 +55,6 @@
             android:id="@+id/edtEmail"
             style="@style/edt_input"
             android:inputType="textEmailAddress"
-            android:text="samirmaciel.dev@gmail.com"
             android:hint="@string/hint_input_email" />
 
         <TextView
@@ -67,7 +66,6 @@
             android:id="@+id/edtPassword"
             style="@style/edt_input"
             android:inputType="textPassword"
-            android:text="tybeh97"
             android:hint="@string/hint_input_password" />
 
         <TextView

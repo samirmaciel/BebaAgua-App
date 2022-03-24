@@ -24,6 +24,14 @@
                 motion:motionTarget="@+id/btnSettings"
                 motion:framePosition="48"
                 android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/btnLogout"
+                motion:framePosition="0"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/btnLogout"
+                motion:framePosition="48"
+                android:alpha="0" />
         </KeyFrameSet>
     </Transition>
 

@@ -115,6 +115,8 @@ public class SignUpFragment extends Fragment {
                             });
                         }
                     });
+        }else{
+            Snackbar.make(getView(), "É preciso preencher todos os campos!", Snackbar.LENGTH_SHORT ).show();
         }
     }
 

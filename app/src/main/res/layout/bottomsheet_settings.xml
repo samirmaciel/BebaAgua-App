@@ -64,6 +64,11 @@
         android:layout_marginStart="16dp"
         android:paddingStart="1dp"
         android:text="DezkDev"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:inputType="text"
+        android:lines="1"
         android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@id/cvImageUser"
@@ -107,6 +112,17 @@
         app:layout_constraintStart_toEndOf="@+id/tvTitleMyGoal"
         android:layout_width="50dp"
         android:layout_height="30dp"/>
+
+    <ImageButton
+        android:id="@+id/btnSaveGoal"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/spnWaterGoal"
+        app:layout_constraintBottom_toBottomOf="@id/spnWaterGoal"
+        app:layout_constraintTop_toTopOf="@id/spnWaterGoal"
+        android:src="@drawable/ic_baseline_save_24"/>
 
 
 

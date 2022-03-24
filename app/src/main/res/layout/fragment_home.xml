@@ -55,6 +55,17 @@
         app:layout_constraintStart_toEndOf="@id/ivUserImageProfile"
         app:layout_constraintTop_toTopOf="@id/ivUserImageProfile" />
 
+    <ImageButton
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_baseline_exit_to_app_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnSettings"
+        app:layout_constraintBottom_toBottomOf="@id/btnSettings"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDrinkWater"
         android:layout_width="wrap_content"

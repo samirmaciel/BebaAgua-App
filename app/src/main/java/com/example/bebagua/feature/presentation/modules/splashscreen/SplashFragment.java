@@ -41,6 +41,7 @@ public class SplashFragment extends Fragment {
 
     private void checkCurrentUser(){
         FirebaseUser user = mAuth.getCurrentUser();
+
         if(user != null){
             mBinding.constraintLayoutSplashScreen.transitionToEnd(new Runnable() {
                 @Override
@@ -61,7 +62,7 @@ public class SplashFragment extends Fragment {
     }
 
     private void goToHomeFragment() {
-        Navigation.findNavController(getView()).navigate(R.id.action_splashFragment_to_loginFragment);
+        Navigation.findNavController(getView()).navigate(R.id.action_splashFragment_to_homeFragment);
     }
 
     private void goToLoginFragment(){

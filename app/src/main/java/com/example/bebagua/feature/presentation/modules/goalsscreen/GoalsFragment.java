@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,16 +17,21 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentGoalsBinding;
 import com.example.bebagua.feature.domain.model.UserModel;
 import com.example.bebagua.feature.presentation.modules.adapter.GoalsRecyclerViewAdapter;
+import com.example.bebagua.feature.presentation.modules.settingsscreen.SettingsBottomSheet;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,6 +42,7 @@ public class GoalsFragment extends Fragment {
     private FragmentGoalsBinding mBinding;
     private GoalsRecyclerViewAdapter mRecyclerAdapter;
     private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
 
     @Nullable
     @Override
@@ -49,6 +56,7 @@ public class GoalsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initRecyclerView();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -56,6 +64,12 @@ public class GoalsFragment extends Fragment {
         super.onResume();
         startDelayedMotionAnim();
         loadItemList();
+        updateUserAtUI(mAuth.getCurrentUser().getUid());
+
+        mBinding.btnSettings.setOnClickListener((View v) -> {
+            SettingsBottomSheet settingsBottomSheet = new SettingsBottomSheet();
+            settingsBottomSheet.show(getChildFragmentManager(), "SettingsBottomSheet");
+        });
 
         mBinding.btnGoBack.setOnClickListener((View v) -> {
             goToBack();
@@ -117,13 +131,37 @@ public class GoalsFragment extends Fragment {
                             UserModel user = object.getValue(UserModel.class);
                             userList.add(user);
                         }
-                        Log.d("FireBaseTEST", "onSuccess: " + userList.get(0).getUserNickName());
                         mRecyclerAdapter.setItemList(userList);
                         mRecyclerAdapter.notifyDataSetChanged();
                     }
                 });
             }
         });
+
+    }
+
+    private void updateUserAtUI(String currentUserUID){
+        ValueEventListener userDataListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String imageURL = dataSnapshot.getValue(String.class);
+
+                View view = getView();
+                if(imageURL != null){
+                    if(view != null){
+                        Glide.with(getView()).load(imageURL).placeholder(R.drawable.defaultperson)
+                                .into(mBinding.ivUserImageProfile);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+
+            }
+        };
+        mDatabase.child("users").child(currentUserUID).child("userImageURL").addValueEventListener(userDataListener);
 
     }
 }
