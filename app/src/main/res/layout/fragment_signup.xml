@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_signup_scene"
-    tools:context=".feature.presentation.modules.auth.signupscreen.SignUpFragment">
+    tools:context=".feature.view.modules.auth.signupscreen.SignUpFragment">
 
     <ImageView
         android:id="@+id/firstTopGeometry"

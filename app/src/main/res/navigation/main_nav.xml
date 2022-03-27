@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.bebagua.feature.presentation.modules.homescreen.HomeFragment"
+        android:name="com.example.bebagua.feature.view.modules.homescreen.HomeFragment"
         tools:layout="@layout/fragment_home"
         android:label="HomeFragment" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.bebagua.feature.presentation.modules.splashscreen.SplashFragment"
+        android:name="com.example.bebagua.feature.view.modules.splashscreen.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -34,17 +34,17 @@
     </fragment>
     <fragment
         android:id="@+id/registerWaterFragment"
-        android:name="com.example.bebagua.feature.presentation.modules.registerwaterscreen.RegisterWaterFragment"
+        android:name="com.example.bebagua.feature.view.modules.registerwaterscreen.RegisterWaterFragment"
         android:label="fragment_registerwater"
         tools:layout="@layout/fragment_registerwater" />
     <fragment
         android:id="@+id/goalsFragment"
-        android:name="com.example.bebagua.feature.presentation.modules.goalsscreen.GoalsFragment"
+        android:name="com.example.bebagua.feature.view.modules.goalsscreen.GoalsFragment"
         android:label="fragment_goals"
         tools:layout="@layout/fragment_goals" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.bebagua.feature.presentation.modules.auth.loginscreen.LoginFragment"
+        android:name="com.example.bebagua.feature.view.modules.auth.loginscreen.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -59,12 +59,12 @@
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
-        android:name="com.example.bebagua.feature.presentation.modules.auth.forgotpasswordscreen.ForgotPasswordFragment"
+        android:name="com.example.bebagua.feature.view.modules.auth.forgotpasswordscreen.ForgotPasswordFragment"
         android:label="fragment_fotgotpassword"
         tools:layout="@layout/fragment_fotgotpassword" />
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.bebagua.feature.presentation.modules.auth.signupscreen.SignUpFragment"
+        android:name="com.example.bebagua.feature.view.modules.auth.signupscreen.SignUpFragment"
         android:label="fragment_signup"
         tools:layout="@layout/fragment_signup" />
 </navigation>

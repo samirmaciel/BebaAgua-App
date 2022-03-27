@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_registerwater_scene"
-    tools:context=".feature.presentation.modules.registerwaterscreen.RegisterWaterFragment">
+    tools:context=".feature.view.modules.registerwaterscreen.RegisterWaterFragment">
 
     <ImageView
         android:id="@+id/firstTopGeometry"

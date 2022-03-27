@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_splash_scene"
-    tools:context=".feature.presentation.modules.splashscreen.SplashFragment">
+    tools:context=".feature.view.modules.splashscreen.SplashFragment">
 
     <ImageView
         android:id="@+id/firstTopGeometry"

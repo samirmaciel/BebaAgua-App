@@ -2,7 +2,9 @@ package com.example.bebagua.feature.constants;
 
 public enum NavigationEnum {
 
-//    REGISTER_SCREEN(2),
-//    GOALS_SCREEN(1),
-//    HOME_SCREEN(0);
+    REGISTER_SCREEN,
+    GOALS_SCREEN,
+    HOME_SCREEN,
+    SIGNUP_SCREEN,
+    FORGOT_PASSWORD_SCREEN
 }

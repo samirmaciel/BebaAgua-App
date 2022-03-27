@@ -17,6 +17,7 @@
     <string name="subtitle_password">Senha</string>
     <string name="subtitle_nickname">Apelido</string>
     <string name="hint_edt_nickname">Apelido</string>
+    <string name="title_input_password">Password</string>
 
     <array name="water_quantity">
         <item>200ml</item>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_login_scene"
-    tools:context=".feature.presentation.modules.auth.loginscreen.LoginFragment">
+    tools:context=".feature.view.modules.auth.loginscreen.LoginFragment">
 
     <ImageView
         android:id="@+id/firstTopGeometry"
@@ -60,7 +60,7 @@
         <TextView
             style="@style/subtitle"
             android:layout_marginTop="18dp"
-            android:text="@string/title_input_email" />
+            android:text="@string/title_input_password" />
 
         <EditText
             android:id="@+id/edtPassword"

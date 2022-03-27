@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_goals_scene"
-    tools:context=".feature.presentation.modules.goalsscreen.GoalsFragment">
+    tools:context=".feature.view.modules.goalsscreen.GoalsFragment">
 
     <ImageView
         android:id="@+id/firstTopGeometry"
