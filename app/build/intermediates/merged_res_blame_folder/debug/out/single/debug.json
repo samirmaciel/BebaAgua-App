@@ -1,0 +1,234 @@
+[
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_item_text_spinner_default.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\item_text_spinner_default.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\xml_fragment_goals_scene.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\xml\\fragment_goals_scene.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_login.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_local_drink_24.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_baseline_local_drink_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\font_nunitoblack.ttf.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\font\\nunitoblack.ttf"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_settings_24.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_baseline_settings_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_item_rv_usergoal.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\item_rv_usergoal.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_bottomsheet_settings.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\bottomsheet_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_signup.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\fragment_signup.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\font_nunitoregular.ttf.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\font\\nunitoregular.ttf"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_background_edt.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\background_edt.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_background_button_stroke_white.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\background_button_stroke_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_horizontal_progressbar.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\horizontal_progressbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_edit_24.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_baseline_edit_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_svgtop2.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_svgtop2.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_background_spinner_waterquantity.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\background_spinner_waterquantity.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_splash.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\fragment_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_defaultperson.png.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\defaultperson.png"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\xml_activity_splash_scene.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\xml\\activity_splash_scene.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_svgbottom.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_svgbottom.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_registerwater.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\fragment_registerwater.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_photo_camera_24.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_baseline_photo_camera_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_goals.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\fragment_goals.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\xml_fragment_registerwater_scene.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\xml\\fragment_registerwater_scene.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\font_nunitoextrabold.ttf.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\font\\nunitoextrabold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_arrow_back_ios_24.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_back_ios_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\xml_fragment_signup_scene.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\xml\\fragment_signup_scene.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\xml_fragment_home_scene.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\xml\\fragment_home_scene.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\font_nunitolight.ttf.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\font\\nunitolight.ttf"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\xml_fragment_login_scene.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\xml\\fragment_login_scene.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\xml_fragment_fotgotpassword_scene.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\xml\\fragment_fotgotpassword_scene.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_user_googleprofile.png.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\user_googleprofile.png"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\font_nunitomedium.ttf.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\font\\nunitomedium.ttf"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\font_nunitosemibold.ttf.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\font\\nunitosemibold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\font_nunitobold.ttf.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\font\\nunitobold.ttf"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_background_corner_radius_top.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\background_corner_radius_top.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_exit_to_app_24.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_baseline_exit_to_app_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\navigation_main_nav.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\navigation\\main_nav.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_baseline_save_24.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_baseline_save_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\raw_glasswater.json.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\raw\\glasswater.json"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_fotgotpassword.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\layout\\fragment_fotgotpassword.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_svgtop.xml.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\drawable\\ic_svgtop.xml"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\samir\\AndroidStudioProjects\\Bebagua\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp"
+    }
+]
