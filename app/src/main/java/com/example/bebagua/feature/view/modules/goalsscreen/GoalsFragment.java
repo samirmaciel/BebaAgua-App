@@ -37,6 +37,7 @@ public class GoalsFragment extends Fragment {
 
     private FragmentGoalsBinding mBinding;
     private GoalsRecyclerViewAdapter mRecyclerAdapter;
+    private GoalsViewModel mViewModel;
 
 
     @Nullable
