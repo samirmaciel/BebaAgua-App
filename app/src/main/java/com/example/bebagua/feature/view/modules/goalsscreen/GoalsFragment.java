@@ -64,7 +64,7 @@ public class GoalsFragment extends Fragment {
         });
 
         mBinding.btnGoBack.setOnClickListener((View v) -> {
-            goToBack();
+            goToBack(); // Go to back
         });
 
     }
