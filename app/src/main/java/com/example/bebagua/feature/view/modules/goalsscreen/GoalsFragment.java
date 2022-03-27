@@ -37,8 +37,7 @@ public class GoalsFragment extends Fragment {
 
     private FragmentGoalsBinding mBinding;
     private GoalsRecyclerViewAdapter mRecyclerAdapter;
-    private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth;
+
 
     @Nullable
     @Override
@@ -51,16 +50,12 @@ public class GoalsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initRecyclerView();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     public void onResume() {
         super.onResume();
         startDelayedMotionAnim();
-        loadItemList();
-        updateUserAtUI(mAuth.getCurrentUser().getUid());
 
         mBinding.btnSettings.setOnClickListener((View v) -> {
             SettingsBottomSheet settingsBottomSheet = new SettingsBottomSheet();
@@ -114,52 +109,9 @@ public class GoalsFragment extends Fragment {
         });
     }
 
-    private void loadItemList() {
-        mDatabase.child("users").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                task.addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
-                    @SuppressLint("NotifyDataSetChanged")
-                    @Override
-                    public void onSuccess(DataSnapshot dataSnapshot) {
-                        List<UserModel> userList = new ArrayList<>();
-                        for (DataSnapshot object : dataSnapshot.getChildren()) {
-                            UserModel user = object.getValue(UserModel.class);
-                            userList.add(user);
-                        }
-                        mRecyclerAdapter.setItemList(userList);
-                        mRecyclerAdapter.notifyDataSetChanged();
-                    }
-                });
-            }
-        });
-
-    }
-
-    private void updateUserAtUI(String currentUserUID){
-        ValueEventListener userDataListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String imageURL = dataSnapshot.getValue(String.class);
-
-                View view = getView();
-                if(imageURL != null){
-                    if(view != null){
-                        Glide.with(getView()).load(imageURL).placeholder(R.drawable.defaultperson)
-                                .into(mBinding.ivUserImageProfile);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
 
-            }
-        };
-        mDatabase.child("users").child(currentUserUID).child("userImageURL").addValueEventListener(userDataListener);
 
-    }
 }
 
 
