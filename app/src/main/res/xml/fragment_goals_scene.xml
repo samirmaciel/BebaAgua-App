@@ -17,15 +17,19 @@
                motion:framePosition="0"
                android:alpha="0" />
            <KeyAttribute
-               motion:motionTarget="@+id/rvGoals"
-               motion:framePosition="0"
-               android:alpha="0" />
-           <KeyAttribute
                motion:motionTarget="@+id/btnSettings"
                motion:framePosition="47"
                android:alpha="0" />
            <KeyAttribute
                motion:motionTarget="@+id/ivUserImageProfile"
+               motion:framePosition="47"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/rvGoals"
+               motion:framePosition="0"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/rvGoals"
                motion:framePosition="47"
                android:alpha="0" />
        </KeyFrameSet>

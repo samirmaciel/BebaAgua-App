@@ -20,7 +20,7 @@ import java.util.List;
 
 public class GoalsRecyclerViewAdapter extends RecyclerView.Adapter<GoalsRecyclerViewAdapter.MyViewHolder> {
 
-    private List<UserModel> itemList = new ArrayList<>();
+    public List<UserModel> itemList = new ArrayList<>();
 
     @NonNull
     @Override

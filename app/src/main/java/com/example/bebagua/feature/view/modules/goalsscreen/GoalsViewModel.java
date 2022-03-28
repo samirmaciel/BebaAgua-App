@@ -71,14 +71,12 @@ public class GoalsViewModel extends ViewModel {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
-
             }
         };
         mDatabase.child("users").child(currentUserUID).addValueEventListener(userDataListener);
-
     }
 
-    class GoalsViewModelFactory implements ViewModelProvider.Factory {
+    public static class GoalsViewModelFactory implements ViewModelProvider.Factory {
 
         private DatabaseReference mDatabase;
         private FirebaseAuth mAuth;

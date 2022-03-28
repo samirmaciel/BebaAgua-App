@@ -11,12 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentGoalsBinding;
+import com.example.bebagua.feature.data.FireBaseSource;
 import com.example.bebagua.feature.domain.model.UserModel;
 import com.example.bebagua.feature.view.modules.adapter.GoalsRecyclerViewAdapter;
 import com.example.bebagua.feature.view.modules.settingsscreen.SettingsBottomSheet;
@@ -50,6 +53,9 @@ public class GoalsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mViewModel = new ViewModelProvider(this, new GoalsViewModel.GoalsViewModelFactory(
+                FireBaseSource.getFirebaseAuth(), FireBaseSource.getDatabase()
+        )).get(GoalsViewModel.class);
         initRecyclerView();
     }
 
@@ -58,13 +64,30 @@ public class GoalsFragment extends Fragment {
         super.onResume();
         startDelayedMotionAnim();
 
+        mViewModel.currentUserData.observe(getViewLifecycleOwner(), new Observer<UserModel>() {
+            @Override
+            public void onChanged(UserModel userModel) {
+                Glide.with(getView()).load(userModel.getUserImageURL()).placeholder(R.drawable.defaultperson)
+                        .into(mBinding.ivUserImageProfile);
+            }
+        });
+
+        mViewModel.usersGoalList.observe(getViewLifecycleOwner(), new Observer<List<UserModel>>() {
+            @Override
+            public void onChanged(List<UserModel> userModels) {
+                mRecyclerAdapter.itemList = userModels;
+                mBinding.rvGoals.smoothScrollToPosition(0);
+                mRecyclerAdapter.notifyDataSetChanged();
+            }
+        });
+
         mBinding.btnSettings.setOnClickListener((View v) -> {
             SettingsBottomSheet settingsBottomSheet = new SettingsBottomSheet();
             settingsBottomSheet.show(getChildFragmentManager(), "SettingsBottomSheet");
         });
 
         mBinding.btnGoBack.setOnClickListener((View v) -> {
-            goToBack(); // Go to back
+            goToBack();
         });
 
     }
