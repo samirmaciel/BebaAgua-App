@@ -48,12 +48,18 @@ public class LoginFragment extends Fragment {
         super.onResume();
         startDelayedMotionAnim();
 
+        setListeners();
+    }
+
+    private void setListeners() {
         mBinding.btnSignin.setOnClickListener((View v) -> {
             signIn();
         });
 
         mBinding.btnSignUp.setOnClickListener((View v) -> {
             goToScreen(NavigationEnum.SIGNUP_SCREEN);
+            mBinding.edtEmail.getText().clear();
+            mBinding.edtPassword.getText().clear();
             mBinding.btnSignUp.setEnabled(false);
         });
 
