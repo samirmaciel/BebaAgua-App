@@ -7,9 +7,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentSplashBinding;
+import com.example.bebagua.feature.constants.NavigationEnum;
+import com.example.bebagua.feature.data.FireBaseSource;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -17,7 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class SplashFragment extends Fragment {
 
     private FragmentSplashBinding mBinding;
-    private FirebaseAuth mAuth;
+    private SplashViewModel mViewModel;
+
 
     @Nullable
     @Override
@@ -29,35 +34,41 @@ public class SplashFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mAuth = FirebaseAuth.getInstance();
+       mViewModel = new ViewModelProvider(this, new SplashViewModel.SplashViewModelFactory(
+               FireBaseSource.getFirebaseAuth()
+       )).get(SplashViewModel.class);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        checkCurrentUser();
-    }
 
-    private void checkCurrentUser(){
-        FirebaseUser user = mAuth.getCurrentUser();
-
-        if(user != null){
-            mBinding.constraintLayoutSplashScreen.transitionToEnd(new Runnable() {
-                @Override
-                public void run() {
+        mViewModel.currentUser.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean){
                     goToHomeFragment();
-                }
-            });
-
-        }else{
-            mBinding.constraintLayoutSplashScreen.transitionToEnd(new Runnable() {
-                @Override
-                public void run() {
+                }else{
                     goToLoginFragment();
                 }
-            });
-        }
+            }
+        });
+    }
 
+
+    private void checkFragment(NavigationEnum screenName){
+        switch (screenName){
+
+            case LOGIN_SCREEN: {
+                goToLoginFragment();
+                return;
+            }
+
+            case HOME_SCREEN: {
+                goToHomeFragment();
+                return;
+            }
+        }
     }
 
     private void goToHomeFragment() {
