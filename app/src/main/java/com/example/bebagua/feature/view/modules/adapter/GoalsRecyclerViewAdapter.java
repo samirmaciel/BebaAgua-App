@@ -61,7 +61,7 @@ public class GoalsRecyclerViewAdapter extends RecyclerView.Adapter<GoalsRecycler
             Glide.with(itemView).load(user.getUserImageURL()).placeholder(R.drawable.defaultperson)
                     .into(userImageProfile);
             userNickame.setText(user.getUserNickName());
-            userGoal.setText(Integer.parseInt(user.getUserGoal())+ "lts");
+            userGoal.setText(Integer.parseInt(user.getUserGoal()) + "lts");
             userCurrentProgress.setMax(Integer.parseInt(user.getUserGoal()) * 1000);
             userCurrentProgress.setProgress(Integer.parseInt(user.getUserProgress()), true);
         }

@@ -64,7 +64,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void signInFirebaseAuth(String email, String password){
-        mAuth.signInWithEmailAndPassword(email, password)
+        mAuth.signInWithEmailAndPassword(email.trim(), password.trim())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -107,17 +107,17 @@ public class LoginFragment extends Fragment {
 
                     case HOME_SCREEN: {
                         Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_homeFragment);
-                        break;
+                        return;
                     }
 
                     case SIGNUP_SCREEN: {
                         Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_signUpFragment);
-                        break;
+                        return;
                     }
 
                     case FORGOT_PASSWORD_SCREEN: {
                         Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_forgotPasswordFragment);
-                        break;
+                        return;
                     }
                 }
 

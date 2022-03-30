@@ -10,11 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentHomeBinding;
+import com.example.bebagua.feature.data.FireBaseSource;
+import com.example.bebagua.feature.domain.model.UserModel;
 import com.example.bebagua.feature.view.modules.settingsscreen.SettingsBottomSheet;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,8 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding mBinding;
-    private FirebaseAuth mAuth;
-    private DatabaseReference mDatabase;
+    private HomeViewModel mViewModel;
 
     @Nullable
     @Override
@@ -41,16 +44,32 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        this.mViewModel = new ViewModelProvider(this, new HomeViewModel.HomeViewModelFactory(
+                FireBaseSource.getFirebaseAuth(), FireBaseSource.getDatabase()
+        )).get(HomeViewModel.class);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         startDelayedMotionAnim();
-        listenerCurrentUserData();
 
+        mViewModel.currentUser.observe(getViewLifecycleOwner(), new Observer<UserModel>() {
+            @Override
+            public void onChanged(UserModel userModel) {
+                if(userModel.getUserImageURL() != null){
+                    if(getView() != null){
+                        Glide.with(getView()).load(userModel.getUserImageURL()).placeholder(R.drawable.defaultperson)
+                                .into(mBinding.ivUserImageProfile);
+                    }
+                }
+            }
+        });
+
+        setListeners();
+    }
+
+    private void setListeners() {
         mBinding.btnDrinkWater.setOnClickListener((View v) -> {
             goToScreen("RegisterWater");
         });
@@ -64,13 +83,13 @@ public class HomeFragment extends Fragment {
         });
 
         mBinding.btnSettings.setOnClickListener((View v) -> {
-            SettingsBottomSheet setttingsBottomSheet = new SettingsBottomSheet();
-            setttingsBottomSheet.show(getChildFragmentManager(), "SettingsBottomSheet");
+            SettingsBottomSheet settingsBottomSheet = new SettingsBottomSheet();
+            settingsBottomSheet.show(getChildFragmentManager(), "SettingsBottomSheet");
         });
     }
 
     private void logout() {
-        mAuth.signOut();
+        mViewModel.mAuth.signOut();
         goToScreen("LoginScreen");
     }
 
@@ -109,7 +128,6 @@ public class HomeFragment extends Fragment {
                 }else{
 
                 }
-
             }
 
             @Override
@@ -118,36 +136,8 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void updateUserAtUI(String currentUserUID){
-        ValueEventListener userDataListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String imageURL = dataSnapshot.getValue(String.class);
-
-                View view = getView();
-                if(imageURL != null){
-                    if(view != null){
-                        Glide.with(getView()).load(imageURL).placeholder(R.drawable.defaultperson)
-                                .into(mBinding.ivUserImageProfile);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
 
-            }
-        };
-        mDatabase.child("users").child(currentUserUID).child("userImageURL").addValueEventListener(userDataListener);
 
-    }
-
-    private void listenerCurrentUserData(){
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            updateUserAtUI(currentUser.getUid());
-        }
-    }
 }
 

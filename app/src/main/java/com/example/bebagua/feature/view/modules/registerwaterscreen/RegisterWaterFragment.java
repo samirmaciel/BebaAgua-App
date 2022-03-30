@@ -12,11 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.bebagua.R;
 import com.example.bebagua.databinding.FragmentRegisterwaterBinding;
+import com.example.bebagua.feature.data.FireBaseSource;
 import com.example.bebagua.feature.domain.model.UserModel;
 import com.example.bebagua.feature.view.modules.settingsscreen.SettingsBottomSheet;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,9 +35,8 @@ import com.google.firebase.database.ValueEventListener;
 public class RegisterWaterFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private FragmentRegisterwaterBinding mBinding;
-    private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth;
-    private Integer currentDrink = 0;
+    private RegisterWaterViewModel mViewModel;
+
 
     @Nullable
     @Override
@@ -46,9 +48,11 @@ public class RegisterWaterFragment extends Fragment implements AdapterView.OnIte
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mAuth = FirebaseAuth.getInstance();
-        updateUserAtUI(mAuth.getCurrentUser().getUid());
+        this.mViewModel = new ViewModelProvider(this, new RegisterWaterViewModel.RegisterWaterViewModelFactory(
+                FireBaseSource.getFirebaseAuth(), FireBaseSource.getDatabase()
+        )).get(RegisterWaterViewModel.class);
+
+
     }
 
     @Override
@@ -58,8 +62,20 @@ public class RegisterWaterFragment extends Fragment implements AdapterView.OnIte
 
         initSpinner();
 
+        mViewModel.currentUser.observe(getViewLifecycleOwner(), new Observer<UserModel>() {
+            @Override
+            public void onChanged(UserModel userModel) {
+                if(userModel.getUserImageURL() != null){
+                    if(getView() != null){
+                        Glide.with(getView()).load(userModel.getUserImageURL()).placeholder(R.drawable.defaultperson)
+                                .into(mBinding.ivUserImageProfile);
+                    }
+                }
+            }
+        });
+
         mBinding.btnRegisterWater.setOnClickListener((View v) ->{
-            updateUserData(mAuth.getCurrentUser().getUid());
+            mViewModel.updateUserData();
             v.setEnabled(false);
         });
 
@@ -118,7 +134,7 @@ public class RegisterWaterFragment extends Fragment implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
         String waterValueString = adapterView.getItemAtPosition(position).toString();
-        this.currentDrink = Integer.parseInt(waterValueString.replace("ml", ""));
+        mViewModel.currentDrink = Integer.parseInt(waterValueString.replace("ml", ""));
     }
 
     @Override
@@ -126,46 +142,7 @@ public class RegisterWaterFragment extends Fragment implements AdapterView.OnIte
 
     }
 
-    private void updateUserAtUI(String currentUserUID) {
-        ValueEventListener userDataListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String imageURL = dataSnapshot.getValue(String.class);
-
-                View view = getView();
-                if(imageURL != null){
-                    if(view != null){
-                        Glide.with(getView()).load(imageURL).placeholder(R.drawable.defaultperson)
-                                .into(mBinding.ivUserImageProfile);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
 
-            }
-        };
-        mDatabase.child("users").child(currentUserUID).child("userImageURL").addValueEventListener(userDataListener);
 
-    }
-
-    private void updateUserData(String currentUserUID){
-        mDatabase.child("users").child(currentUserUID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                task.addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
-                    @Override
-                    public void onSuccess(DataSnapshot dataSnapshot) {
-                        UserModel user = dataSnapshot.getValue(UserModel.class);
-                        Integer currentProgress = Integer.parseInt(user.getUserProgress());
-                        Integer newProgress = currentProgress + currentDrink;
-                        user.setUserProgress(newProgress.toString());
-                        mDatabase.child("users").child(user.getUserUID()).setValue(user);
-                    }
-                });
-            }
-        });
-    }
 }
